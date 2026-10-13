@@ -1,6 +1,7 @@
 package src.lex_a;
 
 import java.util.LinkedHashMap;
+import src.error_g.*;
 
 /*this class implements the logic behind the symbol table, by using
 a linkedhashmap in order to avoid collision bewteen diferent elements*/
@@ -71,7 +72,7 @@ public void remove_from_table(String key)
 *@param: the symbo to add
 *@return: void (-)
 */
-public void add_to_table(String to_add, ts_entry entry)
+public void add_to_table(String to_add, Ts_entry entry)
 {
 	if (entry == null || to_add == null)
 		return;
@@ -86,7 +87,7 @@ public void add_to_table(String to_add, ts_entry entry)
 public ts_entry get_element(String key)
 {
 	if (key == null)
-		return null;
+		return null;w
 	return (this.table.get(Key))
 }
 }
