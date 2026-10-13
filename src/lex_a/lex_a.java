@@ -85,4 +85,57 @@ public class lex_a
 				break;
 		}
 	}
+
+    public String gen_token_numEnt(String c){
+        return " < ENT , c > ";
+    }
+    public String gen_token_real( String c){
+        return " < REAL , c > ";
+    }
+    public String gen_token_word( int i){
+        return " < WORD , i > ";
+    }
+    public String gen_token_sum(){
+        return " < SUM , > ";
+    }
+    public String gen_token_neg(){
+        return " < NEG , > ";
+    }
+    public String gen_token_menor(){
+        return " < MENOR , > ";
+    }
+    public String gen_token_coma(){
+        return " < COMA , > ";
+    }
+    public String gen_token_puntcoma(){
+        return " < PUNTCOMA , > ";
+    }
+    public String gen_token_dospunt(){
+        return " < DOSPUNT , > ";
+    }
+    public String gen_token_parizq(){
+        return " < PARIZQ , > ";
+    }
+    public String gen_token_parderch(){
+        return " < PARDERCH , > ";
+    }
+    public String gen_token_corizq(){
+        return " < CORIZQ , > ";
+    }
+    public String gen_token_corderch(){
+        return " < CORDERCH , > ";
+    }
+    public String gen_token_asig(){
+        return " < ASIG , > ";
+    }
+    public String gen_token_cadena( String c){
+        return " < CAD , c > ";
+    }
+    public String gen_token_id( String c){
+        return " < ID , c > ";
+    }
+    public String gen_token_asigres(){
+        return " < ASIGRES , > ";
+    }
+
 }
