@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import tslib.TS_Gestor;
+import tslib.TS_Gestor.DescripcionAtributo;
+import tslib.TS_Gestor.TipoDatoAtributo;
+import tslib.TS_Gestor.Tabla;
 
 public class lex_a
 {
@@ -22,11 +26,13 @@ public class lex_a
 	private final lex_gest_error errors;
 	private int line = 1;
 
+	private final TS_Gestor tsGestor;
+
 	/*
 	 * @brief: opens the source (read), the tokens file (write) and the error manager
 	 * @throws IOException if any file can't be opened
 	 */
-	public lex_a(String sourcePath, String tokensPath, String errorsPath) throws IOException
+	public lex_a(String sourcePath, String tokensPath, String errorsPath, String tsPath) throws IOException
 	{
 		File src = new File(sourcePath);
 		if (!src.canRead())
@@ -34,6 +40,10 @@ public class lex_a
 		this.reader = new PushbackReader(new BufferedReader(new FileReader(src)), 1);
 		this.tokenWriter = new BufferedWriter(new FileWriter(tokensPath));
 		this.errors = new lex_gest_error(errorsPath);
+		this.tsGestor = new TS_Gestor(tsPath);
+		this.tsGestor.createTPalabrasReservadas();
+		this.tsGestor.createAtributo("desplazamiento", DescripcionAtributo.DIR, TipoDatoAtributo.ENTERO);
+		this.tsGestor.createTSGlobal();
 	}
 
 	/* reads one char and counts lines */
@@ -67,7 +77,7 @@ public class lex_a
 
 	private void emit(Tokens t, String attr) throws IOException
 	{
-		tokenWriter.write("<" + t + ", " + (attr == null ? "" : attr) + ">\n");
+		tokenWriter.write(" < " + t + " , " + (attr == null ? "" : attr) + " > \n");
 	}
 
 	private void emit(Tokens t) throws IOException
@@ -108,8 +118,12 @@ public class lex_a
 		Integer kw = KEYWORDS.get(word);
 		if (kw != null)
 			emit(Tokens.WORD, kw.toString());
-		else
-			emit(Tokens.ID, word);
+		else {
+			int pos = tsGestor.getEntradaTSGlobal(word);
+			if(pos== 0) 
+				pos = tsGestor.addEntradaTSGlobal(word);
+			emit(Tokens.ID, String.valueOf(pos));
+		}
 	}
 
 	/* integer or real constants */
@@ -235,6 +249,11 @@ public class lex_a
 		reader.close();
 		tokenWriter.close();
 		errors.close();
+
+		tsGestor.write(Tabla.GLOBAL);
+		tsGestor.destroy(Tabla.GLOBAL);
+		tsGestor.destroy(Tabla.PALRES);
+
 	}
 
 	public static void main(String[] args)
@@ -246,9 +265,11 @@ public class lex_a
 		}
 		String tokens = args.length > 1 ? args[1] : "tokens.txt";
 		String errorsFile = args.length > 2 ? args[2] : "errors.txt";
+
+		String tsFile = args.length > 3 ? args[3] : "ts.txt";
 		try
 		{
-			lex_a lexer = new lex_a(args[0], tokens, errorsFile);
+			lex_a lexer = new lex_a(args[0], tokens, errorsFile, tsFile);
 			lexer.analyze();
 			lexer.close();
 			if (lexer.get_error_count() > 0)

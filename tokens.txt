@@ -1,41 +1,58 @@
-<WORD, 9>
-<ID, x>
-<ASIG, >
-<ENT, 10>
-<PUNTCOMA, >
-<WORD, 5>
-<ID, pi>
-<ASIG, >
-<REAL, 3.14>
-<PUNTCOMA, >
-<WORD, 8>
-<ID, limit>
-<ASIG, >
-<ENT, 32767>
-<PUNTCOMA, >
-<WORD, 12>
-<ID, message>
-<ASIG, >
-<CAD, "Hello, PdL-JS">
-<PUNTCOMA, >
-<WORD, 6>
-<ID, checkValue>
-<PARIZ, >
-<PARDERCH, >
-<CORIZ, >
-<WORD, 7>
-<PARIZ, >
-<ID, x>
-<MENOR, >
-<ID, limit>
-<PARDERCH, >
-<CORIZ, >
-<WORD, 4>
-<ID, message>
-<PUNTCOMA, >
-<CORDERCH, >
-<ID, x>
-<ASIGRES, >
-<ENT, 1>
-<PUNTCOMA, >
-<CORDERCH, >
+ < WORD , 9 > 
+ < ID , 1 > 
+ < WORD , 8 > 
+ < ASIG ,  > 
+ < ENT , 1 > 
+ < PUNTCOMA ,  > 
+ < WORD , 6 > 
+ < ID , 2 > 
+ < WORD , 12 > 
+ < PARIZ ,  > 
+ < ID , 2 > 
+ < WORD , 14 > 
+ < PARDERCH ,  > 
+ < CORIZ ,  > 
+ < CORDERCH ,  > 
+ < WORD , 9 > 
+ < ID , 3 > 
+ < WORD , 5 > 
+ < WORD , 7 > 
+ < PARIZ ,  > 
+ < ID , 4 > 
+ < PARDERCH ,  > 
+ < ID , 5 > 
+ < ID , 3 > 
+ < ASIG ,  > 
+ < ID , 6 > 
+ < SUMA ,  > 
+ < ENT , 9876 > 
+ < PUNTCOMA ,  > 
+ < WORD , 9 > 
+ < ID , 7 > 
+ < WORD , 8 > 
+ < PUNTCOMA ,  > 
+ < ID , 8 > 
+ < PUNTCOMA ,  > 
+ < ID , 9 > 
+ < CORIZ ,  > 
+ < ID , 7 > 
+ < CORDERCH ,  > 
+ < PUNTCOMA ,  > 
+ < ID , 10 > 
+ < PARIZ ,  > 
+ < ID , 7 > 
+ < COMA ,  > 
+ < ID , 11 > 
+ < PARDERCH ,  > 
+ < WORD , 9 > 
+ < ID , 12 > 
+ < WORD , 5 > 
+ < PUNTCOMA ,  > 
+ < ID , 13 > 
+ < ID , 2 > 
+ < PARIZ ,  > 
+ < PARDERCH ,  > 
+ < PUNTCOMA ,  > 
+ < ID , 12 > 
+ < ASIG ,  > 
+ < REAL , 1.0 > 

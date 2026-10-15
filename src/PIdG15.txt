@@ -1,0 +1,11 @@
+let  x  int= 1;function hola string (hola void){}
+let aaaaa99999 float
+if (k_bb_) then 
+aaaaa99999 = aaaaa999999+9876;
+let num int ;
+breakk
+;write{num};get(num,
+n1)let uu float;
+call hola();
+
+uu = 1.0
