@@ -11,7 +11,6 @@
 <WORD, 8>
 <ID, limit>
 <ASIG, >
-<ENT, 32767>
 <PUNTCOMA, >
 <WORD, 12>
 <ID, message>
